@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "NODE_ENV=development rspack serve",
-    "build": "NODE_ENV=production rspack build"
+    "build": "tsc src/index.ts -d -m commonjs -t es2017 --outDir dist",
+    "bun-build": "bun build ./src/index.ts --transpile --target node --outdir dist",
+    "build-rspack": "NODE_ENV=production rspack build",
+    "lint": "dprint fmt"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -16,7 +19,10 @@
     "@rspack/plugin-react-refresh": "0.5.4",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "bun-types": "^1.0.26",
     "dprint": "^0.45.0",
-    "react-refresh": "^0.14.0"
+    "esbuild": "^0.20.0",
+    "react-refresh": "^0.14.0",
+    "typescript": "^5.3.3"
   }
 }
